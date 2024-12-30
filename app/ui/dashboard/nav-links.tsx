@@ -15,13 +15,13 @@ import clsx from 'clsx' // 可以给导航条加入选中效果
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Home', href: '/dashboard', icon: HomeIcon },
+  { name: 'Home', href: '/home', icon: HomeIcon },
   {
     name: 'Hyy-test1',
-    href: '/dashboard/hyy-test1',
+    href: '/hyy-test1',
     icon: DocumentDuplicateIcon
   },
-  { name: 'Hyy-test2', href: '/dashboard/hyy-test2', icon: UserGroupIcon }
+  { name: 'Hyy-test2', href: '/hyy-test2', icon: UserGroupIcon }
 ]
 
 export default function NavLinks () {
@@ -35,12 +35,11 @@ export default function NavLinks () {
           <Link
             key={link.name}
             href={link.href}
-            // className='flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3'
-
             className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
+              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 dark:bg-gray-500',
               {
-                'bg-sky-100 text-blue-600': pathname === link.href
+                'bg-sky-100 text-blue-600': pathname === link.href,
+                'hover:bg-gray-700 dark:hover:bg-slate-800': true // 确保在暗黑模式下悬停时背景颜色
               }
             )}
           >
